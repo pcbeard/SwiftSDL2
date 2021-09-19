@@ -15,6 +15,9 @@
 #include <SDL_gesture.h>
 #include <SDL_haptic.h>
 #include <SDL_hints.h>
+#if __has_include(<SDL_image.h>)
+#include <SDL_image.h>
+#endif
 #include <SDL_joystick.h>
 #include <SDL_keyboard.h>
 #include <SDL_keycode.h>

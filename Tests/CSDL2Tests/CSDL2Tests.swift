@@ -8,6 +8,19 @@
 import XCTest
 import CSDL2
 
+extension RawRepresentable where RawValue : BinaryInteger {
+    #if os(Windows)
+    typealias FlagsValue = UInt32
+    #else
+    typealias FlagsValue = Int32
+    #endif
+
+    /// Returns platform specific flags values, which doesn't always match RawValue.
+    var flagsValue : FlagsValue {
+        FlagsValue(rawValue)
+    }
+}
+
 final class CSDL2Tests: XCTestCase {
 
     func testVersion() {
@@ -28,5 +41,11 @@ final class CSDL2Tests: XCTestCase {
     
     func testKeyCodeAvailability() {
         XCTAssertNotNil(SDL_KeyCode.self)
+    }
+
+    func testImage() {
+        let rv = IMG_Init(IMG_INIT_PNG.flagsValue)
+        XCTAssertEqual(rv, 0)
+        IMG_Quit()
     }
 }
