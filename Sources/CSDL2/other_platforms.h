@@ -64,3 +64,17 @@
 #include <SDL_version.h>
 #include <SDL_video.h>
 #include <SDL_vulkan.h>
+
+// SDL2_gfx
+#if __has_include(<SDL2_framerate.h>)
+#include <SDL2_framerate.h>
+#endif
+#if __has_include(<SDL2_gfxPrimitives.h>)
+#include <SDL2_gfxPrimitives.h>
+#endif
+#if __has_include(<SDL2_imageFilter.h>)
+#include <SDL2_imageFilter.h>
+#endif
+#if __has_include(<SDL2_rotozoom.h>)
+#include <SDL2_rotozoom.h>
+#endif

@@ -49,4 +49,11 @@ final class CSDL2Tests: XCTestCase {
         XCTAssertGreaterThanOrEqual(rv, 0, String(cString: SDL_GetError()))
         IMG_Quit()
     }
+
+    func testFramerateManager() {
+        var framerateManager = FPSmanager()
+        SDL_initFramerate(&framerateManager)
+        SDL_setFramerate(&framerateManager, 60)
+        XCTAssertEqual(SDL_getFramerate(&framerateManager), 60)
+    }
 }
