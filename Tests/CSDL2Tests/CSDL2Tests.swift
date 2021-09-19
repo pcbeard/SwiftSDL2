@@ -44,8 +44,9 @@ final class CSDL2Tests: XCTestCase {
     }
 
     func testImage() {
-        let rv = IMG_Init(IMG_INIT_PNG.flagsValue)
-        XCTAssertEqual(rv, 0)
+        let flags = IMG_INIT_PNG.flagsValue
+        let rv = IMG_Init(flags)
+        XCTAssertGreaterThanOrEqual(rv, 0, String(cString: SDL_GetError()))
         IMG_Quit()
     }
 }
