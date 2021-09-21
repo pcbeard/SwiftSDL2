@@ -9,11 +9,7 @@ import XCTest
 import CSDL2
 
 extension RawRepresentable where RawValue : BinaryInteger {
-    #if os(Windows)
-    typealias FlagsValue = UInt32
-    #else
     typealias FlagsValue = Int32
-    #endif
 
     /// Returns platform specific flags values, which doesn't always match RawValue.
     var flagsValue : FlagsValue {
